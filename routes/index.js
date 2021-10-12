@@ -1,8 +1,9 @@
-import { getStatus, getStats } from '../controllers/AppController';
+import AppController from '../controllers/AppController';
 
 const express = require('express');
 
-const app = module.exports = express();
+module.exports = express();
+const app = module.exports;
 
-app.get('/status', (_, res) => { getStatus(res); });
-app.get('/stats', (_, res) => { getStats(res); });
+app.get('/status', (_, res) => AppController.getStatus(res));
+app.get('/stats', (_, res) => AppController.getStats(res));
